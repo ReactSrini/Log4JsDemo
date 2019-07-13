@@ -46,11 +46,21 @@ try
         });
 
     const logger = log4js.getLogger('LogDemo');
-    //logger.trace(loggerMessage);
-    //logger.debug(loggerMessage);
-    logger.info(loggerMessage);
-    logger.warn(loggerMessage);
-    logger.error(loggerMessage);
-    //logger.fatal(loggerMessage);
-
+    if (loggerLevel=='info')
+    {
+        logger.info(loggerMessage);
+    }
+    else if(loggerLevel=='warn')
+    {
+        logger.warn(loggerMessage);
+    }
+    else if(loggerLevel=='error')
+    {
+        logger.error(loggerMessage);
+    }
+    else
+    {
+        logger.info('no log found');
+    }
+    
     console.log(`Log file has been created in ${logFileName} `);
